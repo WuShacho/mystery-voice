@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#0e0a1e" />
+<title>来自叫叫的神秘语音</title>
+<meta name="description" content="一封 11 秒的语音信，按下播放，听听叫叫想对你说什么。" />
+<meta property="og:title" content="来自叫叫的神秘语音" />
+<meta property="og:description" content="一封 11 秒的语音信，按下播放即可收听。" />
+<meta property="og:type" content="music.other" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230e0a1e'/%3E%3Ccircle cx='32' cy='32' r='14' fill='%23ffb25e'/%3E%3Ccircle cx='32' cy='32' r='5' fill='%230e0a1e'/%3E%3C/svg%3E" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="sky" aria-hidden="true">
+    <div class="glow glow-a"></div>
+    <div class="glow glow-b"></div>
+    <div class="stars"></div>
+    <div class="vignette"></div>
+  </div>
+
+  <main class="stage">
+    <section class="card" aria-labelledby="voiceTitle">
+      <header class="card-top">
+        <span class="brand">
+          <span class="brand-dot" aria-hidden="true"></span>
+          叫叫 · 神秘频道
+        </span>
+        <span class="tag">语音条 <b>00:11</b></span>
+      </header>
+
+      <div class="disc-wrap">
+        <span class="halo" aria-hidden="true"></span>
+        <svg class="ring" viewBox="0 0 200 200" aria-hidden="true">
+          <circle class="ring-track" cx="100" cy="100" r="92" />
+          <circle class="ring-fill" id="ringFill" cx="100" cy="100" r="92" />
+        </svg>
+        <button class="play" id="playBtn" type="button" aria-label="播放语音">
+          <svg class="icon icon-play" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M8.2 5.4c0-.9 1-1.5 1.8-1l9 6.1c.7.5.7 1.5 0 2l-9 6.1c-.8.5-1.8-.1-1.8-1V5.4Z" />
+          </svg>
+          <svg class="icon icon-pause" viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="7" y="5" width="3.6" height="14" rx="1.4" />
+            <rect x="13.4" y="5" width="3.6" height="14" rx="1.4" />
+          </svg>
+        </button>
+      </div>
+
+      <h1 id="voiceTitle">来自叫叫的<br /><em>神秘语音</em></h1>
+      <p class="lede">一封 11 秒的语音信。戴上耳机，按下播放。</p>
+
+      <div class="wave" id="wave" aria-hidden="true"></div>
+
+      <div class="timeline">
+        <div class="track" id="track" role="slider" tabindex="0"
+             aria-label="播放进度" aria-valuemin="0" aria-valuemax="11" aria-valuenow="0">
+          <div class="fill" id="fill"></div>
+          <div class="knob" id="knob"></div>
+        </div>
+        <div class="time">
+          <span id="curTime">00:00</span>
+          <span id="durTime">00:11</span>
+        </div>
+      </div>
+
+      <footer class="card-foot">
+        <p id="status" class="status" role="status">点击中间按钮，收听这段留言</p>
+        <button class="again" id="againBtn" type="button" hidden>再听一遍</button>
+      </footer>
+    </section>
+
+    <p class="hint">听完，记得把答案回给叫叫</p>
+  </main>
+
+  <audio id="audio" src="voice.mp3" preload="auto" playsinline></audio>
+  <script src="app.js"></script>
+</body>
+</html>
